@@ -1,39 +1,39 @@
 //below consts tie the inquirer npm to the index file and then fs will create the file source
-const inquirer = require('inquirer');
 const fs = require('fs');
+const inquirer = require('inquirer');
 
 //created the prompts for the user inputs
-const readMeQuestions = [
+const questions = [
         {
             type: 'input',
             message: 'What is the name of your project?',
-            name: 'Title',
+            name: 'title',
         },
 
         {
             type: 'input',
             message: 'Please give a brief description of the project.',
-            name: 'Description',
+            name: 'description',
         },
         {
             type: 'input',
             message: 'Please describe installation instructions.',
-            name: 'Installation',
+            name: 'instatlation',
         },
         {
             type: 'input',
             message: 'Please provide contribution guidelines if applicable.',
-            name: 'Contribution Guidelines',
+            name: 'contributions',
         },
         {
             type: 'input',
             message: 'Please provide usage examples if applicable',
-            name: 'Usage',
+            name: 'usage',
         },
         {
             type: 'input',
             message: 'Please provide tests written for you application with examples if applicable.',
-            name: 'Tests',
+            name: 'tests',
         },
 
         {
@@ -46,13 +46,13 @@ const readMeQuestions = [
         {
             type: 'input',
             message: 'What is your Github username?',
-            name: 'Github Username',
+            name: 'github',
         },
 
         {
             type: 'input',
             message: 'What is your email address?',
-            name: 'Email Address',
+            name: 'email',
 
         },
 
@@ -60,58 +60,61 @@ const readMeQuestions = [
 
 //the below code will generate the readme content from the user inputs
 
-function createReadMe(userinput) {
-    return `
-# ${userinput.title}
+function generateREADME(answers) {return `
+# ${answers.title}
 
 ## Description
-${userinput.description}
+${answers.description}
 
 ## Table of Contents
-${userinput.installation}
-${userinput.contributionguidelines}
-${userinput.usage}
-${userinput.tests}
-${userinput.license}
-${userinput.questions}
+- [Installation] (#installation)
+- [Contributions] (#contributions)
+- [Usage] (#usage)
+- [Tests] (#tests)
+- [License] (#license)
+- [Questions] (#questions)
 
 ## Installation
-${userinput.installation}
+${answers.installation}
 
-## Contribution Guidelines
-${userinput.contributionguidelines}
+## Contributions
+${answers.contributionguidelines}
 
 ## Usage
-${userinput.usage}
+${answers.usage}
 
 ## Tests
-${userinput.tests}
+${answers.tests}
 
 ## License
-${userinput.license}
+${answers.license}
 
 ## Questions
-For any questions, please reach out to on Github: ${userinput.questions}
-Or, you can contact me via email: ${userinput.email}
+For any questions, please reach out to on Github: ${answers.questions}
+Or, you can contact me via email: ${answers.email}
 `;
 }
 
+//function below will begin the prompt for user inputs to generate readme file
 
-
-
-        .then ((response) =>
-            fs.writeFile('Readme.md', JSON.stringify(response),
-            (error) => {
-                error ? console.log(error) : console.log("Nice, Good Job!");
-            }
-        ));
-
-function userPrompts() {
+function promptUser () {
     inquirer
-        .prompt(questions)
-
-        .then((answers) => {
-            const readMeInfo = generateReadMe(answers)
+    .prompt(questions)
+    .then((answers) => {
+        const content = generateREADME(answers);
+        fs.writeFile('Readme.md', content, (err) =>
+    {
+        if(err) {
+            console.error(err);
+        } else {
+            console.log('Readme.md file has been created!');
         }
-        )
+    })
+})
+.catch((err) => {
+    console.error(err);
+});
+
 }
+
+promptUser();
