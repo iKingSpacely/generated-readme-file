@@ -2,8 +2,45 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
+const generateREADME = (answers) => 
+`
+# ${answers.title}
+
+## Description
+${answers.description}
+
+## Table of Contents
+- [Installation](#Installation)
+- [Contributions](#Contributions)
+- [Usage](#Usage)
+- [Tests](#Tests)
+- [License](#License)
+- [Questions](#Questions)
+
+## Installation
+${answers.installation}
+
+## Contributions
+${answers.contributions}
+
+## Usage
+${answers.usage}
+
+## Tests
+${answers.tests}
+
+## License
+${answers.licenses}
+[![License](https://img.shields.io/badge/License-${answers.licenses}-red.svg)](https://opensource.org/licenses/${answers.licenses})
+
+## Questions
+For any questions, please reach out to on Github: ${answers.github}
+Or, you can contact me via email: ${answers.email}
+`;
+
+
 //created the prompts for the user inputs
-const questions = [
+inquirer.prompt ([
         {
             type: 'input',
             message: 'What is the name of your project?',
@@ -18,7 +55,7 @@ const questions = [
         {
             type: 'input',
             message: 'Please describe installation instructions.',
-            name: 'instatlation',
+            name: 'installation',
         },
         {
             type: 'input',
@@ -39,8 +76,8 @@ const questions = [
         {
             type: 'list',
             message: 'What license did you use on your repo?',
-            name: 'license',
-            choices: ['MIT License', 'Apache License 2.0', 'Mozilla Public License', 'Mozilla Public License 2.0'],
+            name: 'licenses',
+            choices: ['MIT', 'Apache 2.0', 'Mozilla Public', 'Mozilla Public 2.0'],
         },
 
         {
@@ -55,66 +92,11 @@ const questions = [
             name: 'email',
 
         },
+    ])
 
-    ];
 
-//the below code will generate the readme content from the user inputs
-
-function generateREADME(answers) {return `
-# ${answers.title}
-
-## Description
-${answers.description}
-
-## Table of Contents
-- [Installation] (#installation)
-- [Contributions] (#contributions)
-- [Usage] (#usage)
-- [Tests] (#tests)
-- [License] (#license)
-- [Questions] (#questions)
-
-## Installation
-${answers.installation}
-
-## Contributions
-${answers.contributionguidelines}
-
-## Usage
-${answers.usage}
-
-## Tests
-${answers.tests}
-
-## License
-${answers.license}
-
-## Questions
-For any questions, please reach out to on Github: ${answers.questions}
-Or, you can contact me via email: ${answers.email}
-`;
-}
-
-//function below will begin the prompt for user inputs to generate readme file
-
-function promptUser () {
-    inquirer
-    .prompt(questions)
-    .then((answers) => {
-        const content = generateREADME(answers);
-        fs.writeFile('Readme.md', content, (err) =>
-    {
-        if(err) {
-            console.error(err);
-        } else {
-            console.log('Readme.md file has been created!');
-        }
-    })
-})
-.catch((err) => {
-    console.error(err);
+.then((file) => {
+    const content = generateREADME(file)
+    fs.writeFile("README.md", content, (error) => 
+    error ? console.log("This is the error", error) : console.log("Readme file created succesfully!"))
 });
-
-}
-
-promptUser();

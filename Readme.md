@@ -1,32 +1,33 @@
 
-# Automated Readme.md Generator
+# Adam
 
 ## Description
-Have you ever wanted an easier way to create a Readme file? Then you’ve found the right place! Using node.js, you’ll be able to follow the prompts that will catch your user inputs and automatically generate a Readme.md file for you, eliminating all of the tedious work that comes with doing it from scratch!
+Colin
 
 ## Table of Contents
-- [Installation] (#installation)
-- [Contributions] (#contributions)
-- [Usage] (#usage)
-- [Tests] (#tests)
-- [License] (#license)
-- [Questions] (#questions)
+- [Installation](#Installation)
+- [Contributions](#Contributions)
+- [Usage](#Usage)
+- [Tests](#Tests)
+- [License](#License)
+- [Questions](#Questions)
 
 ## Installation
-undefined
+hello
 
 ## Contributions
-undefined
+hello
 
 ## Usage
-
+hello
 
 ## Tests
-
+hello
 
 ## License
-MIT License
+MIT
+[![License](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 ## Questions
 For any questions, please reach out to on Github: undefined
-Or, you can contact me via email: accolin89@gmail.com
+Or, you can contact me via email: gadam@gmail.com
