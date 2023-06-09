@@ -10,12 +10,12 @@ const generateREADME = (answers) =>
 ${answers.description}
 
 ## Table of Contents
-- [Installation](#Installation)
-- [Contributions](#Contributions)
-- [Usage](#Usage)
-- [Tests](#Tests)
-- [License](#License)
-- [Questions](#Questions)
+- [Installation](#installation)
+- [Contributions](#contributions)
+- [Usage](#usage)
+- [Tests](#tests)
+- [Licenses](#licenses)
+- [Questions](#questions)
 
 ## Installation
 ${answers.installation}
@@ -29,13 +29,12 @@ ${answers.usage}
 ## Tests
 ${answers.tests}
 
-## License
+## Licenses
 ${answers.licenses}
 [![License](https://img.shields.io/badge/License-${answers.licenses}-red.svg)](https://opensource.org/licenses/${answers.licenses})
 
 ## Questions
-For any questions, please reach out to on Github: ${answers.github}
-Or, you can contact me via email: ${answers.email}
+For any questions, please reach out to my email: ${answers.email} or, you can contact me via Github: ${answers.userName}
 `;
 
 
@@ -83,7 +82,7 @@ inquirer.prompt ([
         {
             type: 'input',
             message: 'What is your Github username?',
-            name: 'github',
+            name: 'userName',
         },
 
         {
