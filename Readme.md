@@ -12,6 +12,10 @@ Have you ever wanted an easier way to create a Readme file? Then you’ve found 
 - [Licenses](#licenses)
 - [Questions](#questions)
 
+## Walkthrough Video
+[Untitled_ Jun 9, 2023 5_06 PM.webm](https://github.com/iKingSpacely/generated-readme-file/assets/131802980/93ffe37f-4c81-4f9a-8a32-bae66d62bde0)
+
+
 ## Installation
 npm init -y npm i inquirer@8.2.4
 
