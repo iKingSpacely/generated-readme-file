@@ -1,8 +1,8 @@
 
-# asdlkfj
+# Automated Generate Readme.md File
 
 ## Description
-asdflkj
+Have you ever wanted an easier way to create a Readme file? Then you’ve found the right place! Using node.js, you’ll be able to follow the prompts that will capture your user inputs and automatically generate a Readme.md file for you, eliminating all the tedious work that comes with creating one from scratch! This Readme.md file will have clickable links within the Table of Contents to jump to the portion of the Readme you’re looking for. Enjoy!
 
 ## Table of Contents
 - [Installation](#installation)
@@ -13,20 +13,20 @@ asdflkj
 - [Questions](#questions)
 
 ## Installation
-aslfkj
+npm init -y npm i inquirer@8.2.4
 
 ## Contributions
-lalala
+Adam Colin is the main contributor
 
 ## Usage
-laalalal
+N/A
 
 ## Tests
-alalalala
+npm test
 
 ## Licenses
 MIT
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 ## Questions
-For any questions, please reach out to my email: gadam@gmail.com or, you can contact me via Github: spacely
+For any questions, please reach out to my email: accolin89@gmail.com or, you can contact me via Github: iKingSpacely
